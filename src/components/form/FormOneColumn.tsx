@@ -16,23 +16,25 @@ import DatePicker from "@/components/date-picker";
 import { Separator } from "@/components/ui/separator";
 export default function FormOneColumn() {
   return (
-    <div>
-      <h2 className="text-lg font-semibold mb-4">Formulaire à une colonne</h2>
-      <Separator className="mb-4" />
+    <div className="mb-10 rounded-lg border py-2 shadow-sm bg-background/50 backdrop-blur-sm">
+      <h2 className="text-lg font-semibold mb-2 px-3 md:px-3 md:px-6">
+        Formulaire à une colonne
+      </h2>
+      <Separator className="mb-2" />
       <form className="space-y-4">
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-3 md:px-6">
           <Label htmlFor="name">Name</Label>
           <Input id="name" placeholder="John Doe" />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-3 md:px-6">
           <Label htmlFor="email">Email</Label>
           <Input id="email" type="email" placeholder="john@example.com" />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="password">Password</Label>
           <Input id="password" type="password" />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="role">Role</Label>
           <Select>
             <SelectTrigger className="w-full">
@@ -45,19 +47,19 @@ export default function FormOneColumn() {
           </Select>
         </div>
 
-        <div className="flex items-center gap-2 justify-between">
-          <div className="w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-4 justify-between px-3 md:px-3 md:px-6">
+          <div className="w-full md:w-1/2 flex items-center gap-2">
             <Checkbox id="subscribe" />
             <Label htmlFor="subscribe">Subscribe to newsletter</Label>
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 md:w-1/2 w-full px-3 md:px-6">
             <Label htmlFor="date" className="px-1 ">
               Date de naissance
             </Label>
             <DatePicker />
           </div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label>Gender</Label>
           <RadioGroup defaultValue="male">
             <div className="flex items-center gap-2">
@@ -70,28 +72,28 @@ export default function FormOneColumn() {
             </div>
           </RadioGroup>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="bio">Bio</Label>
           <Textarea id="bio" rows={4} />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="avatar">Photo de profil</Label>
           <Input id="avatar" type="file" accept="image/*" />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="resume">CV (PDF)</Label>
           <Input id="resume" type="file" accept=".pdf,.doc,.docx" />
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 px-3 md:px-6">
           <Label htmlFor="documents">Documents supplémentaires</Label>
           <Input id="documents" type="file" multiple />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 px-3 md:px-6  ">
           <Switch id="notifications" />
           <Label htmlFor="notifications">Enable notifications</Label>
         </div>
-        <Separator className="mb-4" />
-        <div className="flex items-center gap-2">
+        <Separator className="mb-2 w-full" />
+        <div className="flex items-center gap-2 justify-end px-3 md:px-6 ">
           <Button type="submit" className="">
             Submit
           </Button>
@@ -101,7 +103,7 @@ export default function FormOneColumn() {
           <Button type="submit" className="bg-green-500 hover:bg-green-600">
             Save
           </Button>
-          <Button type="submit" className="bg-blue-500 hover:bg-blue-600">
+          <Button type="submit" className="bg-blue-500 hover:bg-blue-600 ">
             Update
           </Button>
         </div>

@@ -18,110 +18,126 @@ import { Separator } from "@/components/ui/separator"
 
 export default function FormThreeColumn() {
   return (
-  <div>
-    <h2 className="text-lg font-semibold mb-4">Formulaire à trois colonnes</h2>
+  <div className="mb-10 rounded-lg border py-2 shadow-sm bg-background/50 backdrop-blur-sm">
+    <h2 className="text-lg font-semibold px-3 md:px-6 mb-4">Formulaire à trois colonnes</h2>
     <Separator className="mb-4" />
-      <form className="grid grid-cols-1 gap-4 md:grid-cols-3">
-      {/* Column 1 */}
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="first">First name</Label>
-        <Input id="first" placeholder="John" />
+    <form className="flex flex-col gap-4 sm:gap-6">
+      {/* LIGNE 1 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="first">First name</Label>
+          <Input id="first" placeholder="John" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="middle">Middle name</Label>
+          <Input id="middle" placeholder="A." />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="last">Last name</Label>
+          <Input id="last" placeholder="Doe" />
+        </div>
       </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="middle">Middle name</Label>
-        <Input id="middle" placeholder="A." />
+      {/* LIGNE 2 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="email3">Email</Label>
+          <Input id="email3" type="email" placeholder="john@example.com" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="phone3">Phone</Label>
+          <Input id="phone3" type="tel" placeholder="+1 555-9876" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="company">Company</Label>
+          <Input id="company" placeholder="ACME Inc." />
+        </div>
       </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="last">Last name</Label>
-        <Input id="last" placeholder="Doe" />
+      {/* LIGNE 3 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="city3">City</Label>
+          <Input id="city3" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="state3">State / Province</Label>
+          <Input id="state3" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="zip3">ZIP / Postal code</Label>
+          <Input id="zip3" />
+        </div>
       </div>
-
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="email3">Email</Label>
-        <Input id="email3" type="email" placeholder="john@example.com" />
+      {/* LIGNE 4 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="country3">Country</Label>
+          <Select>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Choose" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Country</SelectLabel>
+                <SelectItem value="fr">France</SelectItem>
+                <SelectItem value="de">Germany</SelectItem>
+                <SelectItem value="es">Spain</SelectItem>
+                <SelectItem value="us">USA</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="date1" className="px-1 ">Date de naissance</Label>
+          <DatePicker />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="date2" className="px-1 ">Date de naissance</Label>
+          <DatePicker />
+        </div>
       </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="phone3">Phone</Label>
-        <Input id="phone3" type="tel" placeholder="+1 555-9876" />
+      {/* LIGNE 5 : Checkbox/Switch group */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-3 md:px-6">
+        <div className="flex flex-row items-center gap-2 w-full">
+          <Checkbox id="promos3" />
+          <Label htmlFor="promos3">Receive promotions</Label>
+        </div>
+        <div className="flex flex-row items-center gap-2 w-full">
+          <Switch id="active3" />
+          <Label htmlFor="active3">Account active</Label>
+        </div>
+        <div></div>
       </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="company">Company</Label>
-        <Input id="company" placeholder="ACME Inc." />
+      {/* LIGNE 6 : About + Files */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="about3">About</Label>
+          <Textarea id="about3" rows={4} />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="avatar">Photo de profil</Label>
+          <Input id="avatar" type="file" accept="image/*" />
+        </div>
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="resume">CV (PDF)</Label>
+          <Input id="resume" type="file" accept=".pdf,.doc,.docx" />
+        </div>
       </div>
-
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="city3">City</Label>
-        <Input id="city3" />
+      {/* LIGNE 7 : Documents supplémentaires */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-2 w-full px-3 md:px-6">
+          <Label htmlFor="documents">Documents supplémentaires</Label>
+          <Input id="documents" type="file" multiple />
+        </div>
+        <div></div>
+        <div></div>
       </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="state3">State / Province</Label>
-        <Input id="state3" />
-      </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="zip3">ZIP / Postal code</Label>
-        <Input id="zip3" />
-      </div>
-
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="country3">Country</Label>
-        <Select>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Choose" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Country</SelectLabel>
-              <SelectItem value="fr">France</SelectItem>
-              <SelectItem value="de">Germany</SelectItem>
-              <SelectItem value="es">Spain</SelectItem>
-              <SelectItem value="us">USA</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
-      <div className="flex flex-col gap-1 flex-col  ">
-        <Label htmlFor="date" className="px-1 ">
-          Date de naissance
-        </Label>
-        <DatePicker />
-      </div>
-      <div className="flex flex-col gap-1 flex-col  ">
-        <Label htmlFor="date" className="px-1 ">
-          Date de naissance
-        </Label>
-        <DatePicker />
-      </div>
-     
-
-      <div className="flex items-center gap-2 md:col-span-3 flex-wrap">
-        <Checkbox id="promos3" />
-        <Label htmlFor="promos3">Receive promotions</Label>
-        <Switch id="active3" />
-        <Label htmlFor="active3">Account active</Label>
-      </div>
-
-      <div className="flex flex-col gap-1 md:col-span-3">
-        <Label htmlFor="about3">About</Label>
-        <Textarea id="about3" rows={4} />
-      </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="avatar">Photo de profil</Label>
-        <Input id="avatar" type="file" accept="image/*" />
-      </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="resume">CV (PDF)</Label>
-        <Input id="resume" type="file" accept=".pdf,.doc,.docx" />
-      </div>
-      <div className="flex flex-col gap-1">
-        <Label htmlFor="documents">Documents supplémentaires</Label>
-        <Input id="documents" type="file" multiple />
-      </div>
-    <Separator className="mb-2 w-full col-span-3"/>
-      <div className="md:col-span-3 flex flex-wrap gap-2 justify-end">
+      <Separator className="mb-1 w-full" />
+      {/* BOUTONS */}
+      <div className="flex flex-wrap gap-2 justify-end px-3 md:px-6">
         <Button type="button" variant="outline">Cancel</Button>
         <Button type="submit" className="bg-green-500 hover:bg-green-600">Save</Button>
       </div>
     </form>
   </div>
-  )
+) 
 }
